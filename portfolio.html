@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Raúl Senso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-section">
+        <div class="container">
+            <h1 class="page-title">Portfolio</h1>
+            <div class="portfolio-grid">
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="Imagenes/LogoTrilogy.png" alt="Logo Trilogy RGDA">
+                    </div>
+                    <div class="portfolio-content">
+                        <h2>Trilogy RGDA</h2>
+                        <p>
+                            El proyecto es una aplicación audiovisual con membresías mensuales que ofrecen acceso a música, series y películas. Los usuarios deben registrarse para elegir una membresía, que varía en función de los servicios disponibles. La aplicación tiene una interfaz intuitiva y permite cambiar de membresía, con opciones de contenido según el plan seleccionado. Además, se incluye información detallada sobre el contenido, como nombre, autor y duración.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="https://trilogyrgda.github.io" target="_blank" class="project-link">Documentación del proyecto</a>
+
+                        <!-- Carrusel de Imágenes -->
+                        <div class="carousel-container">
+                            <div class="carousel">
+                                <img class="carousel-slide" src="Imagenes/InicioTrilogy.png" alt="Captura 1">
+                                <img class="carousel-slide" src="Imagenes/InicioSesionTrilogy.png" alt="Captura 2">
+                                <img class="carousel-slide" src="Imagenes/ClasesTrilogy.png" alt="Captura 3">
+                                <img class="carousel-slide" src="Imagenes/MenuTrilogy.png" alt="Captura 4">
+                                <img class="carousel-slide" src="Imagenes/CdTrilogy.png" alt="Captura 5">
+                                <img class="carousel-slide" src="Imagenes/CD2Trilogy.png" alt="Captura 6">
+                                <img class="carousel-slide" src="Imagenes/MoviesTrilogy.png" alt="Captura 7">
+                                <img class="carousel-slide" src="Imagenes/Movies2Trilogy.png" alt="Captura 8">
+                                <img class="carousel-slide" src="Imagenes/SeriesTrilogypng.png" alt="Captura 9">
+                                <img class="carousel-slide" src="Imagenes/Serie2Trilogy.png" alt="Captura 10">
+                                <img class="carousel-slide" src="Imagenes/TodosTrilogy.png" alt="Captura 11">
+                                <img class="carousel-slide" src="Imagenes/AjustesTrilogypng.png" alt="Captura 12">
+                                <img class="carousel-slide" src="Imagenes/CancelacionTrilogy.png" alt="Captura 13">
+                                <img class="carousel-slide" src="Imagenes/HomeTrilogy.png" alt="Captura 14">
+                            </div>
+                            <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+                            <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Raúl Senso. All rights reserved.</p>
+    </footer>
+
+    <!-- Carrusel Script -->
+    <script>
+        let slideIndex = 0;
+
+        function moveSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            slideIndex += n;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+            if (slideIndex >= slides.length) slideIndex = 0;
+
+            const newTransformValue = `translateX(-${slideIndex * 100}%)`;
+            document.querySelector('.carousel').style.transform = newTransformValue;
+        }
+    </script>
+</body>
+</html>
