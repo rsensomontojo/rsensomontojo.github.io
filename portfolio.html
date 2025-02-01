@@ -25,6 +25,34 @@
         <div class="container">
             <h1 class="page-title">Portfolio</h1>
             <div class="portfolio-grid">
+              <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="Imagenes/LogoMyDocs.png" alt="Logo MyDocs">
+                    </div>
+                    <div class="portfolio-content">
+                        <h2>MyDocs</h2>
+                        <p>
+                            Un editor de texto en línea simple pero potente, diseñado para ayudarte a crear, editar y guardar documentos de manera rápida y eficiente...
+                        </p>
+                        <div class="portfolio-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Documentación del proyecto</a>
+                        <div class="carousel-container">
+                            <div class="carousel" id="carousel-mydocs">
+                                <img class="carousel-slide" src="Imagenes/MyDocs1.jpg" alt="Captura 1">
+                                <img class="carousel-slide" src="Imagenes/MyDocs2.jpg" alt="Captura 2">
+                                <img class="carousel-slide" src="Imagenes/MyDocs3.jpg" alt="Captura 3">
+                                <img class="carousel-slide" src="Imagenes/MyDocs4.jpg" alt="Captura 4">
+                            </div>
+                            <button class="carousel-prev" onclick="moveSlide(-1, 'mydocs')">&#10094;</button>
+                            <button class="carousel-next" onclick="moveSlide(1, 'mydocs')">&#10095;</button>
+                        </div>
+                    </div>
+                </article>
+              
                 <article class="portfolio-item">
                     <div class="portfolio-image">
                         <img src="Imagenes/LogoTrilogy.png" alt="Logo Trilogy RGDA">
@@ -32,7 +60,7 @@
                     <div class="portfolio-content">
                         <h2>Trilogy RGDA</h2>
                         <p>
-                            El proyecto es una aplicación audiovisual con membresías mensuales que ofrecen acceso a música, series y películas. Los usuarios deben registrarse para elegir una membresía, que varía en función de los servicios disponibles. La aplicación tiene una interfaz intuitiva y permite cambiar de membresía, con opciones de contenido según el plan seleccionado. Además, se incluye información detallada sobre el contenido, como nombre, autor y duración.
+                            El proyecto es una aplicación audiovisual con membresías mensuales que ofrecen acceso a música, series y películas...
                         </p>
                         <div class="portfolio-tags">
                             <span>HTML5</span>
@@ -40,30 +68,21 @@
                             <span>JavaScript</span>
                         </div>
                         <a href="https://trilogyrgda.github.io" target="_blank" class="project-link">Documentación del proyecto</a>
-
-                        <!-- Carrusel de Imágenes -->
                         <div class="carousel-container">
                             <div class="carousel">
                                 <img class="carousel-slide" src="Imagenes/InicioTrilogy.png" alt="Captura 1">
                                 <img class="carousel-slide" src="Imagenes/InicioSesionTrilogy.png" alt="Captura 2">
                                 <img class="carousel-slide" src="Imagenes/ClasesTrilogy.png" alt="Captura 3">
                                 <img class="carousel-slide" src="Imagenes/MenuTrilogy.png" alt="Captura 4">
-                                <img class="carousel-slide" src="Imagenes/CdTrilogy.png" alt="Captura 5">
-                                <img class="carousel-slide" src="Imagenes/CD2Trilogy.png" alt="Captura 6">
-                                <img class="carousel-slide" src="Imagenes/MoviesTrilogy.png" alt="Captura 7">
-                                <img class="carousel-slide" src="Imagenes/Movies2Trilogy.png" alt="Captura 8">
-                                <img class="carousel-slide" src="Imagenes/SeriesTrilogypng.png" alt="Captura 9">
-                                <img class="carousel-slide" src="Imagenes/Serie2Trilogy.png" alt="Captura 10">
-                                <img class="carousel-slide" src="Imagenes/TodosTrilogy.png" alt="Captura 11">
-                                <img class="carousel-slide" src="Imagenes/AjustesTrilogypng.png" alt="Captura 12">
-                                <img class="carousel-slide" src="Imagenes/CancelacionTrilogy.png" alt="Captura 13">
-                                <img class="carousel-slide" src="Imagenes/HomeTrilogy.png" alt="Captura 14">
                             </div>
-                            <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
-                            <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+                            <button class="carousel-prev" onclick="moveSlide(-1, 'trilogy')">&#10094;</button>
+                            <button class="carousel-next" onclick="moveSlide(1, 'trilogy')">&#10095;</button>
                         </div>
                     </div>
                 </article>
+
+            
+                
             </div>
         </div>
     </main>
@@ -75,16 +94,16 @@
 
     <!-- Carrusel Script -->
     <script>
-        let slideIndex = 0;
+        let slideIndices = { trilogy: 0, mydocs: 0 };
+        
+        function moveSlide(n, carouselId) {
+            const slides = document.querySelectorAll(`#carousel-${carouselId} .carousel-slide`);
+            slideIndices[carouselId] += n;
+            if (slideIndices[carouselId] < 0) slideIndices[carouselId] = slides.length - 1;
+            if (slideIndices[carouselId] >= slides.length) slideIndices[carouselId] = 0;
 
-        function moveSlide(n) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            slideIndex += n;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            if (slideIndex >= slides.length) slideIndex = 0;
-
-            const newTransformValue = `translateX(-${slideIndex * 100}%)`;
-            document.querySelector('.carousel').style.transform = newTransformValue;
+            const newTransformValue = `translateX(-${slideIndices[carouselId] * 100}%)`;
+            document.querySelector(`#carousel-${carouselId}`).style.transform = newTransformValue;
         }
     </script>
 </body>
