@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Raúl Senso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-section">
+        <div class="container">
+            <h1 class="page-title">Portfolio</h1>
+            <div class="portfolio-grid">
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="Imagenes/logo_MyDocs.png" alt="Logo MyDocs">
+                    </div>
+                    <div class="portfolio-content">
+                        <h2>MyDocs</h2>
+                        <p>
+                            Un editor de texto en línea simple pero potente, diseñado para ayudarte a crear, editar y
+                            guardar documentos de manera rápida y eficiente...
+                        </p>
+                        <div class="portfolio-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="#" target="_blank" class="project-link">Documentación del proyecto</a>
+                        <div class="carousel-container">
+                            <div class="carousel" id="carousel-mydocs">
+                                <img class="carousel-slide" src="Imagenes/MyDocs1.jpg" alt="Captura 1">
+                                <img class="carousel-slide" src="Imagenes/MyDocs2.jpg" alt="Captura 2">
+                                <img class="carousel-slide" src="Imagenes/MyDocs3.jpg" alt="Captura 3">
+                                <img class="carousel-slide" src="Imagenes/MyDocs4.jpg" alt="Captura 4">
+                            </div>
+                            <button class="carousel-prev" onclick="moveSlide(-1, 'mydocs')">&#10094;</button>
+                            <button class="carousel-next" onclick="moveSlide(1, 'mydocs')">&#10095;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="Imagenes/Logo_Trilogy.png" alt="Logo Trilogy RGDA">
+                    </div>
+                    <div class="portfolio-content">
+                        <h2>Trilogy RGDA</h2>
+                        <p>
+                            El proyecto es una aplicación audiovisual con membresías mensuales que ofrecen acceso a
+                            música, series y películas...
+                        </p>
+                        <div class="portfolio-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="https://trilogyrgda.github.io" target="_blank" class="project-link">Documentación del
+                            proyecto</a>
+                        <div class="carousel-container">
+                            <div class="carousel" id="carousel-trilogy">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(1).png" alt="Captura 1">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(2).png" alt="Captura 2">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(3).png" alt="Captura 3">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(4).png" alt="Captura 4">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(5).png" alt="Captura 5">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(6).png" alt="Captura 6">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(7).png" alt="Captura 7">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(8).png" alt="Captura 8">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(9).png" alt="Captura 9">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(10).png" alt="Captura 10">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(11).png" alt="Captura 11">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(12).png" alt="Captura 12">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(13).png" alt="Captura 13">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(14).png" alt="Captura 14">
+                                <img class="carousel-slide" src="Imagenes/Trilogy_(15).png" alt="Captura 15">
+                            </div>
+                            <button class="carousel-prev" onclick="moveSlide(-1, 'trilogy')">&#10094;</button>
+                            <button class="carousel-next" onclick="moveSlide(1, 'trilogy')">&#10095;</button>
+                        </div>
+                    </div>
+            </div>
+            </article>
+
+
+
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Raúl Senso. All rights reserved.</p>
+    </footer>
+
+    <!-- Carrusel Script -->
+    <script>
+        let slideIndices = { trilogy: 0, mydocs: 0 };
+
+        function moveSlide(n, carouselId) {
+            const slides = document.querySelectorAll(`#carousel-${carouselId} .carousel-slide`);
+            slideIndices[carouselId] += n;
+            if (slideIndices[carouselId] < 0) slideIndices[carouselId] = slides.length - 1;
+            if (slideIndices[carouselId] >= slides.length) slideIndices[carouselId] = 0;
+
+            const newTransformValue = `translateX(-${slideIndices[carouselId] * 100}%)`;
+            document.querySelector(`#carousel-${carouselId}`).style.transform = newTransformValue;
+        }
+    </script>
+</body>
+
+</html>
